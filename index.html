@@ -15,6 +15,7 @@
             position: fixed;
             top: 10px;
             width: 90%;
+            right: 550px;
         }
 
         .sticky+.content {
@@ -57,6 +58,19 @@
             margin-right: 15px;
         }
 
+        .pushnavIcon {
+            position: fixed;
+            cursor: pointer;
+            text-align: center;
+            top: 50%;
+            right: 25px;
+            background-color: lightgrey;
+            z-index: 1;
+            border-radius: 25px;
+            padding: 10px;
+            border: 3px solid black;
+        }
+
         h3 {
             background-color: khaki;
             display: inline-block;
@@ -94,6 +108,7 @@
 
         .sectionTopics {
             margin: 0px 4px;
+            text-decoration: none;
         }
 
         .topicsList {
@@ -123,104 +138,171 @@
                 transform: scale(1, 1);
             }
         }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: lightgrey;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav label {
+            color: #312f2f;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-right: 50px;
+        }
+
+        #closenav {
+            background-color: green;
+            display: block;
+        }
+
+        #main {
+            transition: margin-right .5s;
+            padding: 2px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
-<body style="margin: 50px 15px; background-color: #2f2f2f;">
-    <div class="header" id="myHeader">
-        <div class="searchbar">
-            <form action="" id="form2">
-                <div>
-                    <input type="text" id="search" placeholder="Search..." onsubmit="checkinput()">
-                    <input type="button" id="submit_search" onclick="checkInput()" value="Search">
-                </div>
-            </form>
+<body style="background-color: #2f2f2f;">
+    <div id="mySidenav" class="sidenav">
+        <div id="closenav">
+            <p>X</p>
         </div>
     </div>
-    </div>
-    <div class="content">
-        <div style="color: #bfbfbf;">
-            <h1>
-                Automation Pull Requests Review Guide
-            </h1>
-            <p>
-                This is a guide that contains tips to facilitate the review and make this process quicker. This
-                documentation
-                is also a helper for new members to get accustomed with
-                automation coding standards
-            </p>
-        </div>
-        <ul>
-            <li id="listTestsElement" class="Section" onclick="openSectionItens('testsSection-1', 'listTestsElement')">
-                <i class="material-icons icon">add</i>
-                <h2>
-                    Tests .robot files
-                </h2>
-                <img class="fileIcon" src="robot-icon.png">
-            </li>
-            <div id="testsSection-1" class="showItens hide"> oi </div>
-            <li id="listKeywordElement" class="Section"
-                onclick="openSectionItens('testsSection-2', 'listKeywordElement')">
-                <i class="material-icons icon">add</i>
-                <h2>
-                    Keywords .robot files
-                </h2>
-                <img class="fileIcon" src="robot-icon.png">
-            </li>
-            <div id="testsSection-2" class="showItens hide"> oi </div>
-            <li id="listPageObjectElement" class="Section"
-                onclick="openSectionItens('testsSection-3', 'listPageObjectElement')">
-                <i class="material-icons icon">add</i>
-                <h2>
-                    PageObject .py files
-                </h2>
-                <img class="fileIcon" src="python-icon.png">
-            </li>
-            <div id="testsSection-3" class="showItens hide">
-                <a class="sectionTopics" href="#Class%20Name%20equals%20to%20File%20Name">| Class Name equals to File
-                    Name |</a>
-                <a class="sectionTopics" href="#Unused%20Libraries">| Unused Libraries |</a>
-                <a class="sectionTopics" href="#Elements%20Locator%20Sections">| Elements Locator Sections |</a>
-                <br><br>
-                <div class="topicsList">
-                    <h3 id="Class Name equals to File Name">&bull; Class Name equals to File Name:</h3>
+    <div id="main"  style="margin: 50px 15px;">
+        <span class="pushnavIcon"  onclick="openNav()">
+            <i class="material-icons">remove_red_eye</i>
+        </span>
+        <div class="header" id="myHeader">
+            <div class="searchbar">
+                <form action="" id="form2">
                     <div>
-                        Ensure that the Class Name (PageObject) is the same as the File <i>.py</i> Name.
-                        <div class="imagesSection">
-                            <img class="exampleImg" src="ClassName.png">
-                            <img class="exampleImg" src="FilePyName.png">
-                        </div>
+                        <input type="text" id="search" placeholder="Search..." onsubmit="checkinput()">
+                        <input type="button" id="submit_search" onclick="checkInput()" value="Search">
                     </div>
-                </div>
-                <div class="topicsList">
-                    <h3 id="Unused Libraries">&bull; Unused Libraries:</h3>
-                    <div>
-                        Check if all imported libraries in the file are necessary, or being used at some point on the
-                        code.
-                        <div class="imagesSection">
-                            <img class="exampleImg" src="Libraries.png">
-                        </div>
-                    </div>
-                </div>
-                <div class="topicsList">
-                    <h3 id="Elements Locator Sections">&bull; Elements Locator Sections:</h3>
-                    <div>
-                        Validate the locators elements tags sections defined with comment
-                        <div class="imagesSection">
-                            <img class="exampleImg" src="Libraries.png">
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
-            <li id="listYamlElement" class="Section" onclick="openSectionItens('testsSection-4', 'listYamlElement')">
-                <i class="material-icons icon">add</i>
-                <h2>
-                    Mass .yaml files
-                </h2>
-                <img class="fileIcon" src="yaml-icon.png">
-            </li>
-            <div id="testsSection-4" class="showItens hide"> oi </div>
-        </ul>
+        </div>
+        <div class="content">
+            <div style="color: #bfbfbf;">
+                <h1>
+                    Automation Pull Requests Review Guide
+                </h1>
+                <p>
+                    This is a guide that contains tips to facilitate the review and make this process quicker. This
+                    documentation
+                    is also a helper for new members to get accustomed with
+                    automation coding standards
+                </p>
+            </div>
+            <ul>
+                <li id="listTestsElement" class="Section"
+                    onclick="openSectionItens('testsSection-1', 'listTestsElement')">
+                    <i class="material-icons icon">add</i>
+                    <h2>
+                        Tests .robot files
+                    </h2>
+                    <img class="fileIcon" src="robot-icon.png">
+                </li>
+                <div id="testsSection-1" class="showItens hide">
+                    <div id="linksSection">
+                    </div>
+                    <br><br>
+                    <div class="topicsList">
+                        <h3 id="Test Case Documentation">&bull; Test Case Documentation</h3>
+                        <div>
+                            Check if every Test Case has a documentation that links to the JIRA Test Case
+                            <div class="imagesSection">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li id="listKeywordElement" class="Section"
+                    onclick="openSectionItens('testsSection-2', 'listKeywordElement')">
+                    <i class="material-icons icon">add</i>
+                    <h2>
+                        Keywords .robot files
+                    </h2>
+                    <img class="fileIcon" src="robot-icon.png">
+                </li>
+                <div id="testsSection-2" class="showItens hide"> oi </div>
+                <li id="listPageObjectElement" class="Section"
+                    onclick="openSectionItens('testsSection-3', 'listPageObjectElement')">
+                    <i class="material-icons icon">add</i>
+                    <h2>
+                        PageObject .py files
+                    </h2>
+                    <img class="fileIcon" src="python-icon.png">
+                </li>
+                <div id="testsSection-3" class="showItens hide">
+                    <div id="linksSection">
+                    </div>
+                    <br><br>
+                    <div class="topicsList">
+                        <h3 id="Class Name equals to File Name">&bull; Class Name equals to File Name:</h3>
+                        <div>
+                            Ensure that the Class Name (PageObject) is the same as the File <i>.py</i> Name.
+                            <div class="imagesSection">
+                                <img class="exampleImg" src="ClassName.png">
+                                <img class="exampleImg" src="FilePyName.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topicsList">
+                        <h3 id="Unused Libraries">&bull; Unused Libraries:</h3>
+                        <div>
+                            Check if all imported libraries in the file are necessary, or being used at some point on
+                            the
+                            code.
+                            <div class="imagesSection">
+                                <img class="exampleImg" src="Libraries.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topicsList">
+                        <h3 id="Elements Locator Sections">&bull; Elements Locator Sections:</h3>
+                        <div>
+                            Validate the locators elements tags sections defined with comment
+                            <div class="imagesSection">
+                                <img class="exampleImg" src="Libraries.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li id="listYamlElement" class="Section"
+                    onclick="openSectionItens('testsSection-4', 'listYamlElement')">
+                    <i class="material-icons icon">add</i>
+                    <h2>
+                        Mass .yaml files
+                    </h2>
+                    <img class="fileIcon" src="yaml-icon.png">
+                </li>
+                <div id="testsSection-4" class="showItens hide"> oi </div>
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -281,6 +363,62 @@
                 return false;
             }
         }
+
+        function getElementsForCheckList() {
+            var temp_list = document.getElementsByTagName('h3');
+            var list = [];
+            for (var i = 0; i < temp_list.length; i++) {
+                list.push(temp_list[i].innerText);
+            }
+            for (var i = 0; i < list.length; i++) {
+                list[i] = list[i].replace(/• /g, '').replace(/:/g, '');
+            }
+            return list;
+        }
+
+        function createSectionLinks() {
+            list = getElementsForCheckList();
+            for (var e in list) {
+                var newElement = document.createElement('a');
+                newElement.id = list[e]; newElement.className = "sectionTopics"; newElement.href = '#' + list[e].replace(' ', '%20')
+                newElement.innerHTML = '| ' + list[e] + ' |';
+                document.getElementById('linksSection').appendChild(newElement);
+            }
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "400px";
+            document.getElementById("main").style.marginRight = "400px";
+            var x = document.getElementsByClassName("pushnavIcon")
+            x[0].style.display= "none";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginRight = "0";
+        }
+
+        function createCheckList() {
+            list = getElementsForCheckList();
+            for (var e in list) {
+                var newElement = document.createElement('div');
+                newElement.id = list[e] + '-checklist-item';
+                document.getElementById('mySidenav').appendChild(newElement);
+                var newCheckbox = document.createElement('input');
+                newCheckbox.type = "checkbox"; newCheckbox.id = list[e] + '-list-checkbox'; newCheckbox.name = list[e]; newCheckbox.value = list[e];
+                var newLabel = document.createElement('label');
+                newLabel.for = list[e] + '-list-checkbox'; newLabel.innerHTML = list[e];
+                document.getElementById(list[e] + '-checklist-item').appendChild(newCheckbox);
+                document.getElementById(list[e] + '-checklist-item').appendChild(newLabel);
+            }
+        }
+
+        function start() {
+            createSectionLinks();
+            createCheckList();
+        }
+        window.onload = start;
+
     </script>
 
 </body>
