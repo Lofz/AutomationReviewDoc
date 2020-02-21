@@ -7,19 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .header {
-            width: 90%;
             z-index: 2;
-        }
-
-        .sticky {
-            position: fixed;
-            top: 10px;
-            width: 90%;
-            right: 550px;
-        }
-
-        .sticky+.content {
-            padding-top: 10px;
         }
 
         .content {
@@ -29,7 +17,7 @@
             font-size: .910rem;
         }
 
-        .header .searchbar input {
+        .searchbar input {
             border: solid;
             border-style: ridge;
             border-color: red;
@@ -37,7 +25,10 @@
         }
 
         .searchbar {
-            float: right;
+            display: inline;
+            position: absolute;
+            left: 5px;
+            top: 5px;
         }
 
         .Section {
@@ -156,14 +147,6 @@
             color: #312f2f;
         }
 
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-right: 50px;
-        }
-
         #closenav {
             display: block;
             position: absolute;
@@ -175,6 +158,7 @@
         #main {
             transition: margin-right .5s;
             padding: 2px;
+            margin: 50px 15px;
         }
 
         @media screen and (max-height: 450px) {
@@ -191,24 +175,22 @@
 
 <body style="background-color: #2f2f2f;">
     <div id="mySidenav" class="sidenav">
-        <div id="closenav" onclick="closeNav()">
-            <i class="material-icons"s>clear</i>
-        </div>
+        <span class="searchbar">
+            <form action="" id="form2">
+                <div>
+                    <input type="text" id="search" placeholder="Search..." onsubmit="checkinput()">
+                    <input type="button" id="submit_search" onclick="checkInput()" value="Search">
+                </div>
+            </form>
+        </span>
+        <span id="closenav" onclick="closeNav()">
+            <i class="material-icons" s>clear</i>
+        </span>
     </div>
-    <div id="main"  style="margin: 50px 15px;">
-        <span class="pushnavIcon"  onclick="openNav()">
+    <div id="main">
+        <span class="pushnavIcon" onclick="openNav()">
             <i class="material-icons">remove_red_eye</i>
         </span>
-        <div class="header" id="myHeader">
-            <div class="searchbar">
-                <form action="" id="form2">
-                    <div>
-                        <input type="text" id="search" placeholder="Search..." onsubmit="checkinput()">
-                        <input type="button" id="submit_search" onclick="checkInput()" value="Search">
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="content">
             <div style="color: #bfbfbf;">
                 <h1>
@@ -311,7 +293,7 @@
 
         function createUniqueIds() {
             var elements = document.getElementsByClassName('showItens');
-            for (var i = 0; i < elements.length; i++) { 
+            for (var i = 0; i < elements.length; i++) {
                 elements[i].id = 'testsSection-' + i;
             }
         }
@@ -325,19 +307,6 @@
             } else {
                 e.classList.replace("show", "hide");
                 var i = document.getElementById(liId).querySelectorAll("i")[0].innerHTML = "add";
-            }
-        }
-
-        window.onscroll = function () { scrollHeaderIntoView() };
-
-        var header = document.getElementById("myHeader");
-        var sticky = header.offsetTop;
-
-        function scrollHeaderIntoView() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
             }
         }
 
@@ -399,14 +368,14 @@
             document.getElementById("mySidenav").style.width = "400px";
             document.getElementById("main").style.marginRight = "400px";
             var x = document.getElementsByClassName("pushnavIcon")
-            x[0].style.display= "none";
+            x[0].style.display = "none";
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginRight = "0";
             var x = document.getElementsByClassName("pushnavIcon")
-            x[0].style.display= "inline-block";
+            x[0].style.display = "inline-block";
         }
 
         function createCheckList() {
@@ -423,8 +392,6 @@
                 document.getElementById(list[e] + '-checklist-item').appendChild(newLabel);
             }
         }
-
-        
 
         function start() {
             createUniqueIds();
