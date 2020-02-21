@@ -143,7 +143,7 @@
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 1;
+            z-index: 4;
             top: 0;
             right: 0;
             background-color: lightgrey;
@@ -165,8 +165,11 @@
         }
 
         #closenav {
-            background-color: green;
             display: block;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
         }
 
         #main {
@@ -188,8 +191,8 @@
 
 <body style="background-color: #2f2f2f;">
     <div id="mySidenav" class="sidenav">
-        <div id="closenav">
-            <p>X</p>
+        <div id="closenav" onclick="closeNav()">
+            <i class="material-icons"s>clear</i>
         </div>
     </div>
     <div id="main"  style="margin: 50px 15px;">
@@ -220,15 +223,15 @@
             </div>
             <ul>
                 <li id="listTestsElement" class="Section"
-                    onclick="openSectionItens('testsSection-1', 'listTestsElement')">
+                    onclick="openSectionItens('testsSection-0', 'listTestsElement')">
                     <i class="material-icons icon">add</i>
                     <h2>
                         Tests .robot files
                     </h2>
                     <img class="fileIcon" src="robot-icon.png">
                 </li>
-                <div id="testsSection-1" class="showItens hide">
-                    <div id="linksSection">
+                <div class="showItens hide">
+                    <div class="linksSection">
                     </div>
                     <br><br>
                     <div class="topicsList">
@@ -241,25 +244,24 @@
                     </div>
                 </div>
                 <li id="listKeywordElement" class="Section"
-                    onclick="openSectionItens('testsSection-2', 'listKeywordElement')">
+                    onclick="openSectionItens('testsSection-1', 'listKeywordElement')">
                     <i class="material-icons icon">add</i>
                     <h2>
                         Keywords .robot files
                     </h2>
                     <img class="fileIcon" src="robot-icon.png">
                 </li>
-                <div id="testsSection-2" class="showItens hide"> oi </div>
+                <div class="showItens hide"> oi </div>
                 <li id="listPageObjectElement" class="Section"
-                    onclick="openSectionItens('testsSection-3', 'listPageObjectElement')">
+                    onclick="openSectionItens('testsSection-2', 'listPageObjectElement')">
                     <i class="material-icons icon">add</i>
                     <h2>
                         PageObject .py files
                     </h2>
                     <img class="fileIcon" src="python-icon.png">
                 </li>
-                <div id="testsSection-3" class="showItens hide">
-                    <div id="linksSection">
-                    </div>
+                <div class="showItens hide">
+                    <div class="linksSection"></div>
                     <br><br>
                     <div class="topicsList">
                         <h3 id="Class Name equals to File Name">&bull; Class Name equals to File Name:</h3>
@@ -293,19 +295,26 @@
                     </div>
                 </div>
                 <li id="listYamlElement" class="Section"
-                    onclick="openSectionItens('testsSection-4', 'listYamlElement')">
+                    onclick="openSectionItens('testsSection-3', 'listYamlElement')">
                     <i class="material-icons icon">add</i>
                     <h2>
                         Mass .yaml files
                     </h2>
                     <img class="fileIcon" src="yaml-icon.png">
                 </li>
-                <div id="testsSection-4" class="showItens hide"> oi </div>
+                <div class="showItens hide"> oi </div>
             </ul>
         </div>
     </div>
 
     <script>
+
+        function createUniqueIds() {
+            var elements = document.getElementsByClassName('showItens');
+            for (var i = 0; i < elements.length; i++) { 
+                elements[i].id = 'testsSection-' + i;
+            }
+        }
 
         function openSectionItens(divId, liId) {
             var e = document.getElementById(divId);
@@ -382,7 +391,7 @@
                 var newElement = document.createElement('a');
                 newElement.id = list[e]; newElement.className = "sectionTopics"; newElement.href = '#' + list[e].replace(' ', '%20')
                 newElement.innerHTML = '| ' + list[e] + ' |';
-                document.getElementById('linksSection').appendChild(newElement);
+                document.getElementsByClassName('linksSection')[0].appendChild(newElement);
             }
         }
 
@@ -396,6 +405,8 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginRight = "0";
+            var x = document.getElementsByClassName("pushnavIcon")
+            x[0].style.display= "inline-block";
         }
 
         function createCheckList() {
@@ -413,7 +424,10 @@
             }
         }
 
+        
+
         function start() {
+            createUniqueIds();
             createSectionLinks();
             createCheckList();
         }
