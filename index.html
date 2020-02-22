@@ -53,11 +53,11 @@
             position: fixed;
             cursor: pointer;
             text-align: center;
-            top: 50%;
-            right: 25px;
+            top: 5%;
+            right: 3%;
             background-color: lightgrey;
             z-index: 1;
-            border-radius: 25px;
+            border-radius: 15px;
             padding: 10px;
             border: 3px solid black;
         }
@@ -74,7 +74,7 @@
 
         .showItens {
             overflow: hidden;
-            transition: max-height 0.5s linear;
+            transition: max-height 0.2s linear;
             background-color: lightgrey;
             border-radius: 10px;
             max-width: 2000px;
@@ -139,8 +139,10 @@
             right: 0;
             background-color: lightgrey;
             overflow-x: hidden;
-            transition: 0.5s;
+            transition: 0.3s;
             padding-top: 60px;
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+            font-size: .910rem;
         }
 
         .sidenav label {
@@ -170,6 +172,28 @@
                 font-size: 18px;
             }
         }
+
+        .tooltip {
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 100px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            right: 110%;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
     </style>
 </head>
 
@@ -186,10 +210,12 @@
         <span id="closenav" onclick="closeNav()">
             <i class="material-icons" s>clear</i>
         </span>
+        <h1> -------- CheckList: --------</h1>
     </div>
     <div id="main">
-        <span class="pushnavIcon" onclick="openNav()">
-            <i class="material-icons">remove_red_eye</i>
+        <span class="pushnavIcon tooltip" onclick="openNav()">
+            <span class="tooltiptext" style="font-size: 14px;">More Options</span>
+            <i class="material-icons">settings</i>
         </span>
         <div class="content">
             <div style="color: #bfbfbf;">
@@ -204,8 +230,7 @@
                 </p>
             </div>
             <ul>
-                <li id="listTestsElement" class="Section"
-                    onclick="openSectionItens('testsSection-0', 'listTestsElement')">
+                <li id="listTestsElement" class="Section" onclick="openSectionItens(this.id)">
                     <i class="material-icons icon">add</i>
                     <h2>
                         Tests .robot files
@@ -217,7 +242,8 @@
                     </div>
                     <br><br>
                     <div class="topicsList">
-                        <h3 id="Test Case Documentation">&bull; Test Case Documentation</h3>
+                        <h3 id="Test Case Documentation" name="Test Case Documentation">&bull; Test Case Documentation
+                        </h3>
                         <div>
                             Check if every Test Case has a documentation that links to the JIRA Test Case
                             <div class="imagesSection">
@@ -225,8 +251,7 @@
                         </div>
                     </div>
                 </div>
-                <li id="listKeywordElement" class="Section"
-                    onclick="openSectionItens('testsSection-1', 'listKeywordElement')">
+                <li id="listKeywordElement" class="Section" onclick="openSectionItens(this.id)">
                     <i class="material-icons icon">add</i>
                     <h2>
                         Keywords .robot files
@@ -234,8 +259,9 @@
                     <img class="fileIcon" src="robot-icon.png">
                 </li>
                 <div class="showItens hide"> oi </div>
-                <li id="listPageObjectElement" class="Section"
-                    onclick="openSectionItens('testsSection-2', 'listPageObjectElement')">
+                <div class="linksSection">
+                </div>
+                <li id="listPageObjectElement" class="Section" onclick="openSectionItens(this.id)">
                     <i class="material-icons icon">add</i>
                     <h2>
                         PageObject .py files
@@ -246,7 +272,8 @@
                     <div class="linksSection"></div>
                     <br><br>
                     <div class="topicsList">
-                        <h3 id="Class Name equals to File Name">&bull; Class Name equals to File Name:</h3>
+                        <h3 id="Class Name equals to File Name" name="Class Name equals to File Name">&bull; Class Name
+                            equals to File Name:</h3>
                         <div>
                             Ensure that the Class Name (PageObject) is the same as the File <i>.py</i> Name.
                             <div class="imagesSection">
@@ -256,7 +283,7 @@
                         </div>
                     </div>
                     <div class="topicsList">
-                        <h3 id="Unused Libraries">&bull; Unused Libraries:</h3>
+                        <h3 id="Unused Libraries" name="Unused Libraries">&bull; Unused Libraries:</h3>
                         <div>
                             Check if all imported libraries in the file are necessary, or being used at some point on
                             the
@@ -267,7 +294,8 @@
                         </div>
                     </div>
                     <div class="topicsList">
-                        <h3 id="Elements Locator Sections">&bull; Elements Locator Sections:</h3>
+                        <h3 id="Elements Locator Sections" name="Elements Locator Sections">&bull; Elements Locator
+                            Sections:</h3>
                         <div>
                             Validate the locators elements tags sections defined with comment
                             <div class="imagesSection">
@@ -276,15 +304,18 @@
                         </div>
                     </div>
                 </div>
-                <li id="listYamlElement" class="Section"
-                    onclick="openSectionItens('testsSection-3', 'listYamlElement')">
+                <li id="listYamlElement" class="Section" onclick="openSectionItens(this.id)">
                     <i class="material-icons icon">add</i>
                     <h2>
                         Mass .yaml files
                     </h2>
                     <img class="fileIcon" src="yaml-icon.png">
                 </li>
-                <div class="showItens hide"> oi </div>
+                <div class="showItens hide">
+                    oi<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                </div>
+                <div class="linksSection">
+                </div>
             </ul>
         </div>
     </div>
@@ -298,15 +329,22 @@
             }
         }
 
-        function openSectionItens(divId, liId) {
-            var e = document.getElementById(divId);
-            var l = document.getElementById(liId);
-            if (e.classList.contains("hide")) {
-                e.classList.replace("hide", "show");
-                var i = document.getElementById(liId).querySelectorAll("i")[0].innerHTML = "remove";
+        function openSectionItens(e) {
+            var elements = document.querySelectorAll(".Section");
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].id == e) {
+                    var index = i;
+                }
+            }
+
+            node = document.getElementById('testsSection-' + index);
+
+            if (node.classList.contains("hide")) {
+                node.classList.replace("hide", "show");
+                var i = document.getElementById(e).querySelectorAll("i")[0].innerHTML = "remove";
             } else {
-                e.classList.replace("show", "hide");
-                var i = document.getElementById(liId).querySelectorAll("i")[0].innerHTML = "add";
+                node.classList.replace("show", "hide");
+                var i = document.getElementById(e).querySelectorAll("i")[0].innerHTML = "add";
             }
         }
 
@@ -326,9 +364,9 @@
                     alert("The following text was not found:\n" + searchStr);
                     searchCount = 0;
                 }
-                if (!searchResult && searchCount > 1) {
+                if (!searchResult && searchCount >= 1) {
                     alert("All results shown for the text:\n" + searchStr);
-                    searchCount = 0;
+                    searchCount = 1;
                 }
 
             }
@@ -358,9 +396,12 @@
             list = getElementsForCheckList();
             for (var e in list) {
                 var newElement = document.createElement('a');
-                newElement.id = list[e]; newElement.className = "sectionTopics"; newElement.href = '#' + list[e].replace(' ', '%20')
+                newElement.id = list[e] + '-link'; newElement.className = "sectionTopics"; newElement.href = '#' + list[e].replace(' ', '%20')
                 newElement.innerHTML = '| ' + list[e] + ' |';
-                document.getElementsByClassName('linksSection')[0].appendChild(newElement);
+                var parent = document.getElementById(list[e]);
+                parent = parent.parentNode.parentNode;
+                var index = parent.id.charAt(parent.id.length - 1);
+                document.getElementsByClassName('linksSection')[index].appendChild(newElement);
             }
         }
 
@@ -383,11 +424,13 @@
             for (var e in list) {
                 var newElement = document.createElement('div');
                 newElement.id = list[e] + '-checklist-item';
+                newElement.style.lineHeight = '200%'; newElement.style.fontSize = "16px";
                 document.getElementById('mySidenav').appendChild(newElement);
                 var newCheckbox = document.createElement('input');
                 newCheckbox.type = "checkbox"; newCheckbox.id = list[e] + '-list-checkbox'; newCheckbox.name = list[e]; newCheckbox.value = list[e];
+                newCheckbox.style.width = "16px"; newCheckbox.style.height = "16px"; newCheckbox.style.marginLeft = "30px";
                 var newLabel = document.createElement('label');
-                newLabel.for = list[e] + '-list-checkbox'; newLabel.innerHTML = list[e];
+                newLabel.htmlFor = list[e] + '-list-checkbox'; newLabel.innerHTML = list[e]; newLabel.style.marginLeft = "10px";
                 document.getElementById(list[e] + '-checklist-item').appendChild(newCheckbox);
                 document.getElementById(list[e] + '-checklist-item').appendChild(newLabel);
             }
