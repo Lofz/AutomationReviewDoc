@@ -5,196 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .header {
-            z-index: 2;
-        }
-
-        .content {
-            padding: 16px;
-            text-align: left;
-            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
-            font-size: .910rem;
-        }
-
-        .searchbar input {
-            border: solid;
-            border-style: ridge;
-            border-color: red;
-            font-size: 17px;
-        }
-
-        .searchbar {
-            display: inline;
-            position: absolute;
-            left: 5px;
-            top: 5px;
-        }
-
-        .Section {
-            border-radius: 10px;
-            line-height: 1.25rem;
-            margin: 2em 0 1em;
-            padding: .5em .75em;
-            font-size: 1rem;
-            overflow: hidden;
-            max-width: 400px;
-            border-bottom: 6px solid red;
-            background-color: lightgrey;
-            cursor: pointer;
-        }
-
-        .icon {
-            display: inline;
-            margin-right: 15px;
-        }
-
-        .pushnavIcon {
-            position: fixed;
-            cursor: pointer;
-            text-align: center;
-            top: 5%;
-            right: 3%;
-            background-color: lightgrey;
-            z-index: 1;
-            border-radius: 15px;
-            padding: 10px;
-            border: 3px solid black;
-        }
-
-        h3 {
-            background-color: khaki;
-            display: inline-block;
-        }
-
-        h2 {
-            display: inline;
-            padding: 0;
-        }
-
-        .showItens {
-            overflow: hidden;
-            transition: max-height 0.2s linear;
-            background-color: lightgrey;
-            border-radius: 10px;
-            max-width: 2000px;
-        }
-
-        .showItens.show {
-            max-height: 800px;
-            border-bottom: 6px solid red;
-        }
-
-        .showItens.hide {
-            max-height: 0;
-            pointer-events: none;
-        }
-
-        .fileIcon {
-            max-width: 40px;
-            max-height: 40px;
-            float: right;
-            margin-right: 10px;
-        }
-
-        .sectionTopics {
-            margin: 0px 4px;
-            text-decoration: none;
-        }
-
-        .topicsList {
-            margin: 5px 15px;
-        }
-
-        .imagesSection {
-            margin: 20px 0px;
-        }
-
-        .exampleImg {
-            border-radius: 10px;
-            margin-right: 40px;
-            animation: heartbeat 2s linear infinite;
-        }
-
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1, 1);
-            }
-
-            50% {
-                transform: scale(1.025, 1.025);
-            }
-
-            100% {
-                transform: scale(1, 1);
-            }
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 4;
-            top: 0;
-            right: 0;
-            background-color: lightgrey;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 60px;
-            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
-            font-size: .910rem;
-        }
-
-        .sidenav label {
-            color: #312f2f;
-        }
-
-        #closenav {
-            display: block;
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            cursor: pointer;
-        }
-
-        #main {
-            transition: margin-right .5s;
-            padding: 2px;
-            margin: 50px 15px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {
-                padding-top: 15px;
-            }
-
-            .sidenav a {
-                font-size: 18px;
-            }
-        }
-
-        .tooltip {
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 100px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            padding: 5px 0;
-            border-radius: 6px;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            right: 110%;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body style="background-color: #2f2f2f;">
@@ -242,7 +53,7 @@
                     </div>
                     <br><br>
                     <div class="topicsList">
-                        <h3 id="Test Case Documentation" name="Test Case Documentation">&bull; Test Case Documentation
+                        <h3 id="Test Case Documentation" name="Test Case Documentation">Test Case Documentation
                         </h3>
                         <div>
                             Check if every Test Case has a documentation that links to the JIRA Test Case
@@ -272,7 +83,7 @@
                     <div class="linksSection"></div>
                     <br><br>
                     <div class="topicsList">
-                        <h3 id="Class Name equals to File Name" name="Class Name equals to File Name">&bull; Class Name
+                        <h3 id="Class Name equals to File Name" name="Class Name equals to File Name">Class Name
                             equals to File Name:</h3>
                         <div>
                             Ensure that the Class Name (PageObject) is the same as the File <i>.py</i> Name.
@@ -283,7 +94,7 @@
                         </div>
                     </div>
                     <div class="topicsList">
-                        <h3 id="Unused Libraries" name="Unused Libraries">&bull; Unused Libraries:</h3>
+                        <h3 id="Unused Libraries" name="Unused Libraries">Unused Libraries:</h3>
                         <div>
                             Check if all imported libraries in the file are necessary, or being used at some point on
                             the
@@ -294,7 +105,7 @@
                         </div>
                     </div>
                     <div class="topicsList">
-                        <h3 id="Elements Locator Sections" name="Elements Locator Sections">&bull; Elements Locator
+                        <h3 id="Elements Locator Sections" name="Elements Locator Sections">Elements Locator
                             Sections:</h3>
                         <div>
                             Validate the locators elements tags sections defined with comment
@@ -319,132 +130,7 @@
             </ul>
         </div>
     </div>
-
-    <script>
-
-        function createUniqueIds() {
-            var elements = document.getElementsByClassName('showItens');
-            for (var i = 0; i < elements.length; i++) {
-                elements[i].id = 'testsSection-' + i;
-            }
-        }
-
-        function openSectionItens(e) {
-            var elements = document.querySelectorAll(".Section");
-            for (var i = 0; i < elements.length; i++) {
-                if (elements[i].id == e) {
-                    var index = i;
-                }
-            }
-
-            node = document.getElementById('testsSection-' + index);
-
-            if (node.classList.contains("hide")) {
-                node.classList.replace("hide", "show");
-                var i = document.getElementById(e).querySelectorAll("i")[0].innerHTML = "remove";
-            } else {
-                node.classList.replace("show", "hide");
-                var i = document.getElementById(e).querySelectorAll("i")[0].innerHTML = "add";
-            }
-        }
-
-        var searchCount = 0;
-        function checkInput() {
-            var searchStr = document.getElementById('search').value;
-            if (searchStr == "") {
-                alert("Type something before search");
-                return;
-            }
-            if (window.find) {
-                var searchResult = window.find(searchStr);
-                if (searchResult == true) {
-                    searchCount += 1;
-                }
-                if (!searchResult && searchCount == 0) {
-                    alert("The following text was not found:\n" + searchStr);
-                    searchCount = 0;
-                }
-                if (!searchResult && searchCount >= 1) {
-                    alert("All results shown for the text:\n" + searchStr);
-                    searchCount = 1;
-                }
-
-            }
-        }
-
-        document.getElementById('search').onkeypress = function (enterSubmit) {
-            if (!enterSubmit) enterSubmit = window.event;
-            if (enterSubmit.keyCode == '13') {
-                checkInput();
-                return false;
-            }
-        }
-
-        function getElementsForCheckList() {
-            var temp_list = document.getElementsByTagName('h3');
-            var list = [];
-            for (var i = 0; i < temp_list.length; i++) {
-                list.push(temp_list[i].innerText);
-            }
-            for (var i = 0; i < list.length; i++) {
-                list[i] = list[i].replace(/• /g, '').replace(/:/g, '');
-            }
-            return list;
-        }
-
-        function createSectionLinks() {
-            list = getElementsForCheckList();
-            for (var e in list) {
-                var newElement = document.createElement('a');
-                newElement.id = list[e] + '-link'; newElement.className = "sectionTopics"; newElement.href = '#' + list[e].replace(' ', '%20')
-                newElement.innerHTML = '| ' + list[e] + ' |';
-                var parent = document.getElementById(list[e]);
-                parent = parent.parentNode.parentNode;
-                var index = parent.id.charAt(parent.id.length - 1);
-                document.getElementsByClassName('linksSection')[index].appendChild(newElement);
-            }
-        }
-
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "400px";
-            document.getElementById("main").style.marginRight = "400px";
-            var x = document.getElementsByClassName("pushnavIcon")
-            x[0].style.display = "none";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginRight = "0";
-            var x = document.getElementsByClassName("pushnavIcon")
-            x[0].style.display = "inline-block";
-        }
-
-        function createCheckList() {
-            list = getElementsForCheckList();
-            for (var e in list) {
-                var newElement = document.createElement('div');
-                newElement.id = list[e] + '-checklist-item';
-                newElement.style.lineHeight = '200%'; newElement.style.fontSize = "16px";
-                document.getElementById('mySidenav').appendChild(newElement);
-                var newCheckbox = document.createElement('input');
-                newCheckbox.type = "checkbox"; newCheckbox.id = list[e] + '-list-checkbox'; newCheckbox.name = list[e]; newCheckbox.value = list[e];
-                newCheckbox.style.width = "16px"; newCheckbox.style.height = "16px"; newCheckbox.style.marginLeft = "30px";
-                var newLabel = document.createElement('label');
-                newLabel.htmlFor = list[e] + '-list-checkbox'; newLabel.innerHTML = list[e]; newLabel.style.marginLeft = "10px";
-                document.getElementById(list[e] + '-checklist-item').appendChild(newCheckbox);
-                document.getElementById(list[e] + '-checklist-item').appendChild(newLabel);
-            }
-        }
-
-        function start() {
-            createUniqueIds();
-            createSectionLinks();
-            createCheckList();
-        }
-        window.onload = start;
-
-    </script>
-
+    <script type="text/javascript" src="jscript.js"></script>
 </body>
 
 </html>
