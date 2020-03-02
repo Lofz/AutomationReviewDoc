@@ -50,11 +50,13 @@ function checkInput() {
     }
 }
 
-document.getElementById('search').onkeypress = function (enterSubmit) {
-    if (!enterSubmit) enterSubmit = window.event;
-    if (enterSubmit.keyCode == '13') {
-        checkInput();
-        return false;
+function submitEnterSearch() {
+    document.getElementById('search').onkeypress = function (enterSubmit) {
+        if (!enterSubmit) enterSubmit = window.event;
+        if (enterSubmit.keyCode == '13') {
+            checkInput();
+            return false;
+        }
     }
 }
 
@@ -117,6 +119,5 @@ function createCheckList() {
 
 function start() {
     createUniqueIds();
-    createSectionLinks();
-    createCheckList();
+    submitEnterSearch();
 }

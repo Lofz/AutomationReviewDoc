@@ -1,0 +1,8 @@
+0* Test Case Documentation
+0- Check if every Test Case has a documentation that links to the JIRA Test Case
+
+0* sdasdasdasd
+0- asdasdafas
+
+1* KeywordTest
+1- É isso
