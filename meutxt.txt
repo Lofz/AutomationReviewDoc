@@ -1,8 +1,23 @@
-0* Test Case Documentation
+0* Test Case Documentation:
 0- Check if every Test Case has a documentation that links to the JIRA Test Case
+0# ClassName.png
+0# FilePyName.png
+0# Libraries.png
 
-0* sdasdasdasd
+0* sdasdasdasd:
 0- asdasdafas
 
-1* KeywordTest
+1* KeywordTest:
 1- É isso
+
+2* Class Name equals to File Name:
+2- Ensure that the Class Name (PageObject) is the same as the File <i>.py</i> Name.
+2# ClassName.png
+2# FilePyName.png
+
+2* Unused Libraries:
+2- Check if all imported libraries in the file are necessary, or being used at some point on the code.
+2# Libraries.png
+
+2* Elements Locator Sections:
+2- Validate the locators elements tags sections defined with comment
